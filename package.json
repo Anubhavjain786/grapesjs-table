@@ -1,0 +1,29 @@
+{
+  "name": "grapesjs-table",
+  "version": "1.0.1",
+  "description": "grapesjs-table",
+  "main": "dist/grapesjs-table.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anubhavjain786/grapesjs-table.git"
+  },
+  "scripts": {
+    "start": "grapesjs-cli serve",
+    "build": "grapesjs-cli build",
+    "bump": "npm version patch -m 'Bump v%s'"
+  },
+  "keywords": [
+    "grapesjs",
+    "plugin",
+    "table",
+    "grapesjs-table"
+  ],
+  "devDependencies": {
+    "grapesjs-cli": "^1.0.13"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Anubhavjain786/grapesjs-table/issues"
+  },
+  "homepage": "https://github.com/Anubhavjain786/grapesjs-table#readme"
+}
