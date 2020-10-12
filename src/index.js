@@ -56,7 +56,7 @@ export default grapesjs.plugins.add("grapesjs-table", (editor, opts = {}) => {
 
       style: `
       .table {
-        background-color :red;
+        background-color :#eee;
         text-decoration: none;
         color: inherit;
         padding: 7px 14px;
@@ -64,18 +64,32 @@ export default grapesjs.plugins.add("grapesjs-table", (editor, opts = {}) => {
         display: block;
         border-radius: 3px;
         margin-right: 10px;
-        background-color: #eee;
+        height:15vw;
         margin-top: 5px;
         width: 100%;
       }
-      .table-body{
-
+      .table-body {
+        display: block;
+        height:100%;
+        width: 100%;
       }
-      .table-footer{
-
+      .table-footer {
+        display: block;
+        width: 100%;
       }
-      .table-header{
-
+      .table-header {
+        display: block;
+        width: 100%;
+      }
+      .row {
+         display: block;
+        height:100%;
+        width: 100%;
+      }
+      .cell {
+         display: block;
+        height:100%;
+        width: auto;
       }
     `,
     },

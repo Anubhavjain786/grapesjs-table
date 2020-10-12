@@ -67,7 +67,11 @@ export default (comps, { modal, ...config }) => {
         this.listenTo(this.model, "active", this.openModal);
       },
 
-      getRowContainerForModal(setRows) {
+      openModal() {
+        let setRows = tableProps.rows;
+        let setColumns = tableProps.columns;
+        const divContainer = document.createElement("div");
+
         const containerRows = document.createElement("div");
         const labelRows = document.createElement("label");
         labelRows.innerHTML = "rows&nbsp;";
@@ -80,10 +84,8 @@ export default (comps, { modal, ...config }) => {
           setRows = inputRows.value;
         };
         containerRows.appendChild(inputRows);
-        return containerRows;
-      },
+        divContainer.appendChild(containerRows);
 
-      getColumnContainerForModal(setColumns) {
         const containerColumns = document.createElement("div");
 
         const labelColumns = document.createElement("label");
@@ -97,10 +99,8 @@ export default (comps, { modal, ...config }) => {
           setColumns = inputColumns.value;
         };
         containerColumns.appendChild(inputColumns);
-        return containerColumns;
-      },
+        divContainer.appendChild(containerColumns);
 
-      getBtnContainerForModal(setRows, setColumns) {
         const containerBtn = document.createElement("div");
         const btn = document.createElement("button");
         btn.innerHTML = "Create Table";
@@ -110,19 +110,8 @@ export default (comps, { modal, ...config }) => {
           modal.close();
         };
         containerBtn.appendChild(btn);
-        return containerBtn;
-      },
 
-      openModal() {
-        let setRows = tableProps.rows;
-        let setColumns = tableProps.columns;
-
-        const divContainer = document.createElement("div");
-        divContainer.appendChild(this.getRowContainerForModal(setRows));
-        divContainer.appendChild(this.getColumnContainerForModal(setColumns));
-        divContainer.appendChild(
-          this.getBtnContainerForModal(setRows, setColumns)
-        );
+        divContainer.appendChild(containerBtn);
 
         modal.setTitle("New Table").setContent(divContainer).open();
       },
