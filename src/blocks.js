@@ -5,7 +5,7 @@ export default (editor, opts = {}) => {
 
   const type = "table";
 
-  const content = `<div data-gjs-type="${type}"></div>
+  const content = `<table data-gjs-type="${type}"></table>
     ${style ? `<style>${style}</style>` : ""}`;
 
   tableBlock &&

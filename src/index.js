@@ -55,41 +55,14 @@ export default grapesjs.plugins.add("grapesjs-table", (editor, opts = {}) => {
       classTableHeader: "table-header",
 
       style: `
-      .table {
-        background-color :#eee;
-        text-decoration: none;
-        color: inherit;
-        padding: 7px 14px;
-        transition: opacity 0.3s;
-        display: block;
-        border-radius: 3px;
-        margin-right: 10px;
-        height:15vw;
-        margin-top: 5px;
+      table {
         width: 100%;
+        border: 1px solid #cccccc;
+        margin-bottom: 20px;
       }
-      .table-body {
-        display: block;
-        height:100%;
-        width: 100%;
-      }
-      .table-footer {
-        display: block;
-        width: 100%;
-      }
-      .table-header {
-        display: block;
-        width: 100%;
-      }
-      .row {
-         display: block;
-        height:100%;
-        width: 100%;
-      }
-      .cell {
-         display: block;
-        height:100%;
-        width: auto;
+      table td {
+        padding: 8px;
+        border: 1px solid #cccccc;
       }
     `,
     },

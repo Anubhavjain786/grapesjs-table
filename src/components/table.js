@@ -73,8 +73,9 @@ export default (comps, { modal, ...config }) => {
         const divContainer = document.createElement("div");
 
         const containerRows = document.createElement("div");
+        containerRows.className = "modal-table-row";
         const labelRows = document.createElement("label");
-        labelRows.innerHTML = "rows&nbsp;";
+        labelRows.innerHTML = "No. of Rows";
         containerRows.appendChild(labelRows);
 
         const inputRows = document.createElement("input");
@@ -87,9 +88,9 @@ export default (comps, { modal, ...config }) => {
         divContainer.appendChild(containerRows);
 
         const containerColumns = document.createElement("div");
-
+        containerColumns.className = "modal-table-column";
         const labelColumns = document.createElement("label");
-        labelColumns.innerHTML = "columns&nbsp;";
+        labelColumns.innerHTML = "No. of Columns";
         containerColumns.appendChild(labelColumns);
 
         const inputColumns = document.createElement("input");
@@ -102,6 +103,7 @@ export default (comps, { modal, ...config }) => {
         divContainer.appendChild(containerColumns);
 
         const containerBtn = document.createElement("div");
+        containerBtn.className = "modal-create-btn"
         const btn = document.createElement("button");
         btn.innerHTML = "Create Table";
         btn.onclick = () => {
@@ -113,7 +115,41 @@ export default (comps, { modal, ...config }) => {
 
         divContainer.appendChild(containerBtn);
 
-        modal.setTitle("New Table").setContent(divContainer).open();
+        const style = document.createElement('style');
+        style.innerHTML = `
+        .gjs-mdl-dialog {
+          width: 35%;
+        }
+        .modal-table-row, .modal-table-column {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 15px;
+        }
+        .modal-table-row label, .modal-table-column label {
+          font-size: 14px;
+          flex: 1;
+        }
+        .modal-table-row input, .modal-table-column input {
+          flex: 1;
+          height: 35px;
+          border-radius: 10px;
+          border: 1px solid #f5f5f5;
+          padding: 2px 16px;
+        }
+        .modal-create-btn {
+          text-align: right;
+        }
+        .modal-create-btn button {
+          height: 35px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+        }
+        `;
+        divContainer.appendChild(style);
+
+        modal.setTitle("Add a New Table").setContent(divContainer).open();
       },
     }),
   });
