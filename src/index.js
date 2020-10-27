@@ -6,7 +6,7 @@ const attrTableBody = "data-tbody";
 const attrTableFooter = "data-tfoot";
 const attrTableHeader = "data-thead";
 
-export default grapesjs.plugins.add("grapesjs-table", (editor, opts = {}) => {
+export default (editor, opts = {}) => {
   const options = {
     ...{
       // Object to extend the default table block, eg. `{ label: 'table', attributes: { ... } }`
@@ -74,4 +74,4 @@ export default grapesjs.plugins.add("grapesjs-table", (editor, opts = {}) => {
 
   // Add blocks
   loadBlocks(editor, options);
-});
+};
