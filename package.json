@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-table",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "grapesjs-table",
   "main": "dist/grapesjs-table.min.js",
   "repository": {
