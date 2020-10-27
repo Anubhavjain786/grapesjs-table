@@ -136,6 +136,10 @@ export default (comps, { modal, ...config }) => {
           border-radius: 10px;
           border: 1px solid #f5f5f5;
           padding: 2px 16px;
+          color: #333333;
+        }
+        .modal-table-row input, .modal-table-column input:focus {
+          outline: none
         }
         .modal-create-btn {
           text-align: right;
@@ -145,6 +149,11 @@ export default (comps, { modal, ...config }) => {
           border-radius: 10px;
           border: none;
           cursor: pointer;
+          padding: 0 10px;
+          color: #333333;
+        }
+        .modal-create-btn button:focus {
+          outline: none
         }
         `;
         divContainer.appendChild(style);
