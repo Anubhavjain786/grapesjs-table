@@ -66,6 +66,9 @@ export default (comps, { modal, ...config }) => {
       init() {
         this.listenTo(this.model, "active", this.openModal);
       },
+      onRender() {
+        this.openModal();
+      },
 
       openModal() {
         let setRows = tableProps.rows;
@@ -103,7 +106,7 @@ export default (comps, { modal, ...config }) => {
         divContainer.appendChild(containerColumns);
 
         const containerBtn = document.createElement("div");
-        containerBtn.className = "modal-create-btn"
+        containerBtn.className = "modal-create-btn";
         const btn = document.createElement("button");
         btn.innerHTML = "Create Table";
         btn.onclick = () => {
@@ -115,7 +118,7 @@ export default (comps, { modal, ...config }) => {
 
         divContainer.appendChild(containerBtn);
 
-        const style = document.createElement('style');
+        const style = document.createElement("style");
         style.innerHTML = `
         .gjs-mdl-dialog {
           width: 35%;
