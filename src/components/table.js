@@ -10,7 +10,14 @@ export default (comps, { modal, ...config }) => {
 
   const components = [];
 
+  if (tableProps.header) {
+    components.push({ type: "thead", row: 1, columns: tableProps.columns });
+  }
   components.push({ type: "tbody", ...tableProps });
+
+  if (tableProps.footer) {
+    components.push({ type: "tfoot", row: 1, columns: tableProps.columns });
+  }
 
   comps.addType(type, {
     model: tableModel.extend(
@@ -31,6 +38,22 @@ export default (comps, { modal, ...config }) => {
               name: "columns",
               changeProp: 1,
             },
+            {
+              type: "checkbox",
+              label: "Table Header",
+              name: "header",
+              valueTrue: true,
+              valueFalse: false,
+              changeProp: 1,
+            },
+            {
+              type: "checkbox",
+              label: "Table Footer",
+              name: "footer",
+              valueTrue: true,
+              valueFalse: false,
+              changeProp: 1,
+            },
           ],
 
           ...tableProps,
@@ -43,14 +66,39 @@ export default (comps, { modal, ...config }) => {
           classKey && this.addClass(classKey);
           this.listenTo(this, "change:rows", this.changeDimensions);
           this.listenTo(this, "change:columns", this.changeDimensions);
+          this.listenTo(this, "change:header", this.changeDimensions);
+          this.listenTo(this, "change:footer", this.changeDimensions);
         },
 
         changeDimensions() {
           const addRows = this.get("rows");
           const addColumns = this.get("columns");
-          this.components([
-            { type: "tbody", rows: addRows, columns: addColumns },
-          ]);
+          const header = this.get("header");
+          const footer = this.get("footer");
+
+          const components = [];
+
+          if (header) {
+            components.push({
+              type: "thead",
+              rows: 1,
+              columns: addColumns,
+            });
+          }
+          components.push({
+            type: "tbody",
+            rows: addRows,
+            columns: addColumns,
+          });
+
+          if (footer) {
+            components.push({
+              type: "tfoot",
+              rows: 1,
+              columns: addColumns,
+            });
+          }
+          this.components(components);
         },
       },
       {
@@ -65,9 +113,6 @@ export default (comps, { modal, ...config }) => {
     view: tableView.extend({
       init() {
         this.listenTo(this.model, "active", this.openModal);
-      },
-      onRender() {
-        this.openModal();
       },
 
       openModal() {
