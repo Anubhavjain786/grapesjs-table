@@ -25,6 +25,7 @@ export default (comps, { modal, ...config }) => {
         defaults: {
           ...tableModel.prototype.defaults,
           components,
+
           traits: [
             {
               type: "number",
