@@ -154,6 +154,7 @@ export default (comps, { modal, ...config }) => {
         const containerBtn = document.createElement("div");
         containerBtn.className = "modal-create-btn";
         const btn = document.createElement("button");
+        btn.setAttribute("type", "button");
         btn.innerHTML = "Create Table";
         btn.onclick = () => {
           this.model.set("rows", setRows);
