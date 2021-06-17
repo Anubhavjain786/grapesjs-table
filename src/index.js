@@ -5,6 +5,7 @@ const attrTable = "data-table";
 const attrTableBody = "data-tbody";
 const attrTableFooter = "data-tfoot";
 const attrTableHeader = "data-thead";
+const attrTableCell = "data-cell";
 
 export default (editor, opts = {}) => {
   const options = {
@@ -42,6 +43,9 @@ export default (editor, opts = {}) => {
       // Table Header container attribute identifier
       attrTableHeader,
 
+      // Table Cell container attribute identifier
+      attrTableCell,
+
       // Default class to use on table
       classTable: "table",
 
@@ -53,6 +57,9 @@ export default (editor, opts = {}) => {
 
       // Default class to use on table header
       classTableHeader: "table-header",
+
+      // Default class to use on table header
+      classTableCell: "table-cell",
 
       style: `
       table {
